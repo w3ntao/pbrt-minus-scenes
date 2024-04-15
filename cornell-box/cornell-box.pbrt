@@ -3,7 +3,7 @@ LookAt 278 273 -800  278 273 0   0 1 0
 Camera "perspective" "float fov" [37.5]
 
 Film "rgb"
-    "string filename" ["cornell.png"]
+    "string filename" ["cornell-box.png"]
     "integer xresolution" [ 1080 ]
     "integer yresolution" [ 1080 ]
 
