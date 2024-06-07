@@ -1,0 +1,32 @@
+LookAt 691 1210 192  691 0 192   0 0 1
+
+
+Camera "perspective" "float fov" [60]
+
+Film "rgb"
+    "string filename" ["lucy.png"]
+    "integer xresolution" [ 1080 ]
+    "integer yresolution" [ 1680 ]
+
+#Integrator "simplepath"
+#Integrator "ambientocclusion"
+Integrator "surfacenormal"
+
+WorldBegin
+
+# color grey
+Material "diffuse"
+    "rgb reflectance" [ 0.73 0.73 0.73 ]
+
+AttributeBegin
+    Shape "plymesh"
+        "string filename" [ "lucy.ply" ]
+
+# lucy statue:
+# http://www.graphics.stanford.edu/data/3Dscanrep/lucy.tar.gz
+# up-direction: z+
+# min: (225.841080, -388.417145, -605.892822)
+# max: (1155.670166, 145.354340, 991.145996)
+# centroid: (690.755615, -121.531403, 192.626587)
+
+AttributeEnd
