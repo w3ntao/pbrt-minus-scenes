@@ -10,7 +10,8 @@ Camera "perspective"
     "float fov" [ 37 ]
 Sampler "pmj02bn"
     "integer pixelsamples" [ 256 ]
-Integrator "volpath" "integer maxdepth" 30
+
+Integrator "simplepath"
 
 WorldBegin
 
@@ -22,7 +23,7 @@ AttributeBegin
     ReverseOrientation
     Shape "trianglemesh"
         "integer indices" [ 0 1 2 0 2 3 ]
-        "point3 P" [ -1 3.204597 -0.999721 1 3.204597 -0.999721 1 3.251826 0.999721 
+        "point3 P" [ -1 3.204597 -0.999721 1 3.204597 -0.999721 1 3.251826 0.999721
                      -1 3.251826 0.999721 ]
 AttributeEnd
 # Material in the inner part of the sphere
