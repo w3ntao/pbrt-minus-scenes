@@ -1,16 +1,20 @@
 Film "gbuffer"
-    "string filename" "lte-orb-simple-ball.exr"
+    "string filename" "lte-orb-simple-ball.png"
     "integer yresolution" [ 1200 ]
     "integer xresolution" [ 1200 ]
 Scale -1 1 1
 LookAt 0.2 0.4 -0.5
     0 0.1 0
     0 1 0
+
 Camera "perspective"
     "float fov" [ 37 ]
 
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
+
+Integrator "simplepath"
+
 
 WorldBegin
 

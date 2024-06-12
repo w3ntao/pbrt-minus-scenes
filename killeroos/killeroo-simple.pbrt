@@ -14,6 +14,7 @@ Film "rgb"
 Sampler "halton"
     "integer pixelsamples" [ 256 ]
 
+Integrator "simplepath"
 
 WorldBegin
 
@@ -34,12 +35,12 @@ AttributeBegin
         "rgb reflectance" [ 0.5 0.5 0.8 ]
     Translate 0 0 -140
     Shape "trianglemesh"
-        "point2 uv" [ 0 0 5 0 5 5 0 5 
+        "point2 uv" [ 0 0 5 0 5 5 0 5
             ]
         "integer indices" [ 0 1 2 2 3 0 ]
         "point3 P" [ -1000 -1000 0 1000 -1000 0 1000 1000 0 -1000 1000 0 ]
     Shape "trianglemesh"
-        "point2 uv" [ 0 0 5 0 5 5 0 5 
+        "point2 uv" [ 0 0 5 0 5 5 0 5
             ]
         "integer indices" [ 0 1 2 2 3 0 ]
         "point3 P" [ -400 -1000 -1000 -400 1000 -1000 -400 1000 1000 -400 -1000 1000 ]

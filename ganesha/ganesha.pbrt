@@ -2,7 +2,7 @@ Sampler "halton"
     "integer pixelsamples" [ 512 ]
 PixelFilter "gaussian"
 Film "rgb"
-    "string filename" [ "ganesha.exr" ]
+    "string filename" [ "ganesha.png" ]
     "integer yresolution" [ 1440 ]
     "integer xresolution" [ 1440 ]
 Scale -1 1 1
@@ -12,12 +12,13 @@ LookAt 328 40.282 245
 Camera "perspective"
     "float fov" [ 30 ]
 
+Integrator "simplepath"
 
 WorldBegin
 
 Shape "trianglemesh"
     "integer indices" [ 0 1 2 0 2 3 ]
-    "point3 P" [ -672 -41.999958 1000 1328 -41.999958 1000 1328 -42.000042 -1000 
+    "point3 P" [ -672 -41.999958 1000 1328 -41.999958 1000 1328 -42.000042 -1000
                  -672 -42.000042 -1000 ]
 
 AttributeBegin
@@ -32,7 +33,7 @@ AttributeBegin
         "rgb L" [ 15.258819 12.083925 9.589462 ]
     Shape "trianglemesh"
         "integer indices" [ 0 1 2 0 2 3 ]
-        "point3 P" [ 220 61.367302 -343.62833 400 61.367302 -343.62833 400 238.63269 
+        "point3 P" [ 220 61.367302 -343.62833 400 61.367302 -343.62833 400 238.63269
                      -312.37167 220 238.63269 -312.37167 ]
 AttributeEnd
 
@@ -42,7 +43,7 @@ AttributeBegin
     ReverseOrientation
     Shape "trianglemesh"
         "integer indices" [ 0 1 2 0 2 3 ]
-        "point3 P" [ 220 61.367302 343.62833 400 61.367302 343.62833 400 238.63269 
+        "point3 P" [ 220 61.367302 343.62833 400 61.367302 343.62833 400 238.63269
                      312.37167 220 238.63269 312.37167 ]
 AttributeEnd
 Texture "tmap" "spectrum" "imagemap"
