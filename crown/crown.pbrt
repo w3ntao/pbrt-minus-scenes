@@ -19,7 +19,8 @@ Sampler "halton"
 #Integrator "volpath"
 #    "integer maxdepth" [ 100 ]
 
-Integrator "ambientocclusion"
+#Integrator "ambientocclusion"
+Integrator "surfacenormal"
 
 WorldBegin
 
