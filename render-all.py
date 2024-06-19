@@ -11,6 +11,7 @@ quality_scenes = [
     "cornell-box/cornell-box-specular.pbrt",
     "veach-mis/veach-mis-colorized.pbrt",
     "killeroos/killeroo-simple.pbrt",
+    "killeroos/killeroo-gold.pbrt",
     "crown/crown.pbrt",
     "sssdragon/dragon_10.pbrt",
     "ganesha/ganesha.pbrt",
@@ -18,8 +19,8 @@ quality_scenes = [
     "lte-orb/lte-orb-silver.pbrt",
 ]
 
-regular_scenes = quality_scenes + \
-    ["killeroos/killeroo-simple-sn.pbrt", "ganesha/ganesha-ao.pbrt",]
+
+regular_scenes = quality_scenes
 
 
 def bash(command):
