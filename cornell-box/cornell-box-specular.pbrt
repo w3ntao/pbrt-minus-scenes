@@ -1,5 +1,5 @@
-
 LookAt 278 273 -800  278 273 0   0 1 0
+
 Camera "perspective" "float fov" [37.5]
 
 Film "rgb"
@@ -7,10 +7,7 @@ Film "rgb"
     "integer xresolution" [ 1080 ]
     "integer yresolution" [ 1080 ]
 
-#Integrator "randomwalk"
 Integrator "simplepath"
-#Integrator "ambientocclusion"
-#Integrator "surfacenormal"
 
 WorldBegin
 
@@ -21,8 +18,6 @@ Material "diffuse"
 # light source
 AttributeBegin
    AreaLightSource "diffuse" "rgb L" [1 1 1] "float scale" [20]
-   #Material "matte"
-   #"spectrum Kd" [400.0 0.0 500.0 8.0 600.0 15.6 700.0 18.4]
 
    Shape "trianglemesh"
    "integer indices" [ 0 1 2  2 3 0 ]
