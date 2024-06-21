@@ -51,7 +51,7 @@ def regular_render(_folder: str):
 
 
 def quality_render(_folder: str):
-    spp = 512
+    spp = 1024
 
     os.chdir(folder)
     for scene_file in quality_scenes:
