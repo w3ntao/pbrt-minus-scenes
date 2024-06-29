@@ -12,7 +12,7 @@ Film "rgb"
 Sampler "halton"
     "integer pixelsamples" [ 4 ]
 
-Integrator "simplepath"
+Integrator "path"
 
 WorldBegin
 

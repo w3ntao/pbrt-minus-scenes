@@ -1,5 +1,6 @@
-Sampler "halton"
+Sampler "independent"
     "integer pixelsamples" [ 512 ]
+
 PixelFilter "gaussian"
 Film "rgb"
     "string filename" [ "ganesha.png" ]
@@ -9,10 +10,11 @@ Scale -1 1 1
 LookAt 328 40.282 245
     328 10 0
     -0.00212272 0.998201 -0.0599264
+
 Camera "perspective"
     "float fov" [ 30 ]
 
-Integrator "simplepath"
+Integrator "path"
 
 WorldBegin
 
