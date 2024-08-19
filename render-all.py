@@ -6,21 +6,29 @@ import datetime
 
 pbrt_exe = "~/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
 
-quality_scenes = [
-    # "cornell-box/cornell-box.pbrt",
-    "cornell-box/cornell-box-specular.pbrt",
+scenes = [
+    "zero-day/frame25.pbrt",
+    "zero-day/frame35.pbrt",
+    "zero-day/frame52.pbrt",
+    "zero-day/frame85.pbrt",
+    "zero-day/frame120.pbrt",
+    "zero-day/frame180.pbrt",
+    "zero-day/frame210.pbrt",
+    "zero-day/frame300.pbrt",
     "veach-mis/veach-mis-colorized.pbrt",
-    # "killeroos/killeroo-simple.pbrt",
     "killeroos/killeroo-gold.pbrt",
-    "crown/crown.pbrt",
-    "sssdragon/dragon_10.pbrt",
+    "killeroos/killeroo-simple.pbrt",
+    # "crown/crown.pbrt",
+    # "sssdragon/dragon_10.pbrt",
     "ganesha/ganesha.pbrt",
     "lte-orb/lte-orb-rough-glass.pbrt",
     "lte-orb/lte-orb-silver.pbrt",
+    "cornell-box/cornell-box-instance.pbrt",
+    "cornell-box/cornell-box-specular.pbrt",
 ]
 
 
-regular_scenes = quality_scenes
+regular_scenes = scenes
 
 
 def bash(command):
@@ -33,7 +41,7 @@ def get_current_time():
 
 
 def regular_render(_folder: str):
-    spp = 1
+    spp = 4
 
     os.chdir(folder)
     for scene_file in regular_scenes:
@@ -47,16 +55,17 @@ def regular_render(_folder: str):
 
         if bash(command) != 0:
             raise Exception("\n\n fail rendering {}\n\n".format(scene_file))
+
         print("\n")
 
 
 def quality_render(_folder: str):
-    spp = 1024
+    spp = 100
 
     os.chdir(folder)
-    for scene_file in quality_scenes:
+    for scene_file in scenes:
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-simplepath-{}.pbrt".format(spp))
+            ".pbrt", "-path-stratified-{}.pbrt".format(spp))
         command = "{} ../{} --spp {} --output {}".format(
             pbrt_exe, scene_file, spp, output)
 
@@ -64,6 +73,25 @@ def quality_render(_folder: str):
 
         if bash(command) != 0:
             raise Exception("\n\n fail rendering {}\n\n".format(scene_file))
+        print("\n")
+
+
+def surfacenormal_render(_folder: str):
+    spp = 4
+
+    os.chdir(folder)
+    for scene_file in regular_scenes:
+        output = os.path.basename(scene_file).replace(
+            ".pbrt", "-{}.pbrt".format(spp))
+
+        command = "{} ../{} --spp {} --integrator surfacenormal --output {}".format(
+            pbrt_exe, scene_file, spp, output)
+
+        print("{}: rendering {}".format(_folder, scene_file))
+
+        if bash(command) != 0:
+            raise Exception("\n\n fail rendering {}\n\n".format(scene_file))
+
         print("\n")
 
 
@@ -86,11 +114,15 @@ if __name__ == "__main__":
         prog=os.path.basename(__file__),
         description='a helper script for pbrt-minus')
 
-    parser.add_argument('-m', '--memory',
+    parser.add_argument('--memory',
                         default=False,
                         action='store_true')  # on/off flag
 
-    parser.add_argument('-q', '--quality',
+    parser.add_argument('--quality',
+                        default=False,
+                        action='store_true')  # on/off flag
+
+    parser.add_argument('--surfacenormal',
                         default=False,
                         action='store_true')  # on/off flag
 
@@ -103,6 +135,8 @@ if __name__ == "__main__":
         memory_test(folder)
     elif args.quality:
         quality_render(folder)
+    elif args.surfacenormal:
+        surfacenormal_render(folder)
     else:
         regular_render(folder)
 
