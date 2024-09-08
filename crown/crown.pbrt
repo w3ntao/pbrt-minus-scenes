@@ -20,7 +20,7 @@ Sampler "halton"
 #    "integer maxdepth" [ 100 ]
 
 #Integrator "ambientocclusion"
-Integrator "surfacenormal"
+Integrator "path"
 
 WorldBegin
 
