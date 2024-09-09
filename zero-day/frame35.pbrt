@@ -7,7 +7,7 @@ Camera "perspective"
 Film "rgb"
     "integer yresolution" [ 840 ]
     "integer xresolution" [ 1920 ]
-    "string filename" [ "frame35.png" ]
+    "string filename" [ "frame35.exr" ]
     "string sensor" "canon_eos_100d"
     "float whitebalance" 5500
     "float iso" 125
@@ -15,7 +15,6 @@ Film "rgb"
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
 
-Integrator "path"
 
 WorldBegin
 

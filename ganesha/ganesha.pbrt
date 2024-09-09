@@ -57,6 +57,12 @@ AttributeBegin
         "float vroughness" [ 0.01 ]
         "float uroughness" [ 0.01 ]
         "texture reflectance" [ "tmap" ]
+
+    #Material "diffuse"
+    #"rgb reflectance" [ 0.0442848 0.0442848 0.0442848 ]
+    #"rgb reflectance" [ 0.442848 0.442848 0.442848 ]
+
+
     Shape "plymesh"
         "string filename" [ "geometry/ganesha.ply.gz" ]
 AttributeEnd

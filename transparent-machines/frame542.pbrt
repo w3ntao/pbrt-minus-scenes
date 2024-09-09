@@ -6,17 +6,15 @@ Camera "perspective"
 # imgtool convert -bloomlevel 1 frame542.exr frame542.png
 Film "rgb"
     "float maxcomponentvalue" 10
-    "string filename" [ "frame542.png" ]
+    "string filename" [ "frame542.exr" ]
     "integer yresolution" [ 840 ]
     "integer xresolution" [ 1920 ]
-
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
 
-Integrator "path"
+Integrator "volpath"
     "integer maxdepth" [ 256 ]
 
-#Integrator "ambientocclusion"
 
 WorldBegin
 

@@ -15,8 +15,6 @@ Film "rgb"
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
 
-Integrator "path"
-
 WorldBegin
 
 Include "textures.pbrt"
