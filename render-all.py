@@ -6,33 +6,45 @@ import datetime
 
 pbrt_exe = "~/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
 
-scenes = [
-    "cornell-box/cornell-box-environment-map.pbrt",
-    # "cornell-box/cornell-box-instance.pbrt",
-    # "cornell-box/cornell-box-specular.pbrt",
+all_scenes = [
+    "bmw-m6/bmw-m6.pbrt",
 
-    "veach-mis/veach-mis-colorized.pbrt",
-    # "killeroos/killeroo-gold.pbrt",
-    # "killeroos/killeroo-simple.pbrt",
-    # "crown/crown.pbrt",
-    # "sssdragon/dragon_10.pbrt",
+    "chopper-titan/chopper-titan-v4.pbrt",
+
+    "cornell-box/cornell-box-environment-map.pbrt",
+    "cornell-box/cornell-box-specular.pbrt",
+
+    "crown/crown.pbrt",
+
     "ganesha/ganesha.pbrt",
     "ganesha/ganesha-coated-gold.pbrt",
+
+    "killeroos/killeroo-gold.pbrt",
+    "killeroos/killeroo-coated-gold.pbrt",
+    "killeroos/killeroo-simple.pbrt",
+
     "lte-orb/lte-orb-rough-glass.pbrt",
     "lte-orb/lte-orb-silver.pbrt",
 
-    # "zero-day/frame25.pbrt",
-    # "zero-day/frame35.pbrt",
-    # "zero-day/frame52.pbrt",
-    # "zero-day/frame85.pbrt",
-    # "zero-day/frame120.pbrt",
-    # "zero-day/frame180.pbrt",
-    # "zero-day/frame210.pbrt",
-    # "zero-day/frame300.pbrt",
+    "pbrt-book/book.pbrt",
+
+    "transparent-machines/frame542.pbrt",
+    "transparent-machines/frame675.pbrt",
+    "transparent-machines/frame812.pbrt",
+    "transparent-machines/frame888.pbrt",
+    "transparent-machines/frame1266.pbrt",
+
+    "veach-mis/veach-mis-colorized.pbrt",
+
+    "zero-day/frame25.pbrt",
+    "zero-day/frame35.pbrt",
+    "zero-day/frame52.pbrt",
+    "zero-day/frame85.pbrt",
+    "zero-day/frame120.pbrt",
+    "zero-day/frame180.pbrt",
+    "zero-day/frame210.pbrt",
+    "zero-day/frame300.pbrt",
 ]
-
-
-regular_scenes = scenes
 
 
 def bash(command):
@@ -45,12 +57,12 @@ def get_current_time():
 
 
 def regular_render(_folder: str):
-    spp = 4
+    spp = 1
 
     os.chdir(folder)
-    for scene_file in regular_scenes:
+    for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-{}-independent.png".format(spp))
+            ".pbrt", "-path-{}.png".format(spp))
 
         command = "{} ../{} --spp {} --output {}".format(
             pbrt_exe, scene_file, spp, output)
@@ -77,7 +89,7 @@ def debug_run(_folder: str):
     for spp in [128, 256, 512, 1024]:
         # spp = spp * spp
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-path-stratified-{}.png".format(spp))
+            ".pbrt", "-path-{}.png".format(spp))
         command = "{} ../{} --spp {} --output {}".format(
             pbrt_exe, scene_file, spp, output)
 
@@ -92,9 +104,9 @@ def quality_render(_folder: str):
     spp = 256
 
     os.chdir(folder)
-    for scene_file in scenes:
+    for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-path-stratified-{}.png".format(spp))
+            ".pbrt", "-path-{}.png".format(spp))
         command = "{} ../{} --spp {} --output {}".format(
             pbrt_exe, scene_file, spp, output)
 
@@ -109,7 +121,7 @@ def surfacenormal_render(_folder: str):
     spp = 100
 
     os.chdir(folder)
-    for scene_file in regular_scenes:
+    for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
             ".pbrt", "-{}.pbrt".format(spp))
 
@@ -127,7 +139,7 @@ def surfacenormal_render(_folder: str):
 def memory_test(_folder: str):
     os.chdir(folder)
 
-    for scene_file in regular_scenes:
+    for scene_file in all_scenes:
         command = "compute-sanitizer --tool memcheck --leak-check full {} ../{} --spp 1".format(
             pbrt_exe, scene_file)
 

@@ -1,4 +1,4 @@
-Sampler "independent"
+Sampler "halton"
     "integer pixelsamples" [ 512 ]
 
 PixelFilter "gaussian"
