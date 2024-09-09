@@ -3,8 +3,9 @@ import os
 import subprocess
 import datetime
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-pbrt_exe = "~/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
+pbrt_exe = "{}/pbrt-minus".format(dir_path)
 
 all_scenes = [
     "bmw-m6/bmw-m6.pbrt",
@@ -174,7 +175,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     folder = "out-{}".format(get_current_time())
-    bash("mkdir {}".format(folder))
+    bash("mkdir -p {}".format(folder))
 
     if args.debug:
         debug_run(folder)
