@@ -1,0 +1,46 @@
+#LookAt -5 9 -5  -4.75 2.75 0   0 1 0
+LookAt -5.5 7 -5.5
+    -4.75 2.25 0
+    0 1 0
+Camera "perspective"
+    "float fov" [ 30 ]
+Film "rgb"
+    "float iso" [ 150 ]
+    "string filename" [ "caustic-glass.png" ]
+    "integer yresolution" [ 1000 ]
+    "integer xresolution" [ 700 ]
+
+Sampler "sobol"
+    "integer pixelsamples" [ 32 ]
+
+Integrator "path"
+#Integrator "mlt"
+
+
+WorldBegin
+
+LightSource "spot"
+    "float scale" [125]
+    "blackbody I" [ 5500 ]
+    "point3 to" [ -5 2.75 0 ]
+    "point3 from" [ 0 5 9 ]
+
+AttributeBegin
+    LightSource "infinite"
+        "rgb L" [ 0.1 0.1 0.1 ]
+AttributeEnd
+
+AttributeBegin
+    Material "dielectric"
+        "float eta" [ 1.25 ]
+    Shape "plymesh"
+        "string filename" [ "geometry/mesh_00001.ply" ]
+AttributeEnd
+
+AttributeBegin
+    Material "coateddiffuse"
+        "rgb reflectance" [ 0.6399999857 0.6399999857 0.6399999857 ]
+        "float roughness" [ 0.0104080001 ]
+    Shape "plymesh"
+        "string filename" [ "geometry/mesh_00002.ply" ]
+AttributeEnd
