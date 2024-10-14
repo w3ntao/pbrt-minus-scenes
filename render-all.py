@@ -8,34 +8,33 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 pbrt_exe = "{}/pbrt-minus".format(dir_path)
 
 all_scenes = [
-    "bmw-m6/bmw-m6.pbrt",
+    "veach-mis/veach-mis-colorized.pbrt",
 
-    "chopper-titan/chopper-titan-v4.pbrt",
-
-    "cornell-box/cornell-box-environment-map.pbrt",
     "cornell-box/cornell-box-specular.pbrt",
+    "cornell-box/cornell-box-environment-map.pbrt",
+
+    "pbrt-book/book.pbrt",
 
     "crown/crown.pbrt",
 
     "ganesha/ganesha.pbrt",
     "ganesha/ganesha-coated-gold.pbrt",
 
-    "killeroos/killeroo-gold.pbrt",
-    "killeroos/killeroo-coated-gold.pbrt",
-    "killeroos/killeroo-simple.pbrt",
+    "bmw-m6/bmw-m6.pbrt",
+    "chopper-titan/chopper-titan-v4.pbrt",
 
     "lte-orb/lte-orb-rough-glass.pbrt",
     "lte-orb/lte-orb-silver.pbrt",
 
-    "pbrt-book/book.pbrt",
+    "killeroos/killeroo-gold.pbrt",
+    "killeroos/killeroo-coated-gold.pbrt",
+    "killeroos/killeroo-simple.pbrt",
 
     "transparent-machines/frame542.pbrt",
     "transparent-machines/frame675.pbrt",
     "transparent-machines/frame812.pbrt",
     "transparent-machines/frame888.pbrt",
     "transparent-machines/frame1266.pbrt",
-
-    "veach-mis/veach-mis-colorized.pbrt",
 
     "zero-day/frame25.pbrt",
     "zero-day/frame35.pbrt",
@@ -57,16 +56,18 @@ def get_current_time():
     return datetime.datetime.now().strftime("%B-%d-%H-%M")
 
 
-def regular_render(_folder: str):
-    spp = 1
+def regular_render(_folder: str, integrator: str, megakernel: bool):
+    spp = 4
 
     os.chdir(folder)
     for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-path-{}.png".format(spp))
+            ".pbrt", "-{}-{}.png".format(integrator, spp))
 
-        command = "{} ../{} --spp {} --output {}".format(
-            pbrt_exe, scene_file, spp, output)
+        megakernel_config = "--megakernel" if megakernel else ""
+
+        command = "{} ../{} --spp {} --integrator {} {} --output {}".format(
+            pbrt_exe, scene_file, spp, integrator, megakernel_config, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
 
@@ -78,20 +79,21 @@ def regular_render(_folder: str):
 
 def debug_run(_folder: str):
     # scene_file = "ganesha/ganesha.pbrt"
-    scene_file = "ganesha/ganesha-coated-gold.pbrt"
+    # scene_file = "ganesha/ganesha-coated-gold.pbrt"
     # scene_file = "bmw-m6/bmw-m6.pbrt"
-    # scene_file = "cornell-box/cornell-box-environment-map.pbrt"
+    scene_file = "cornell-box/cornell-box-specular.pbrt"
     # scene_file = "crown/crown.pbrt"
-    # scene_file = "killeroos/killeroo-wall.pbrt"
+    # scene_file = "killeroos/killeroo-simple.pbrt"
+    # scene_file = "veach-mis/veach-mis-colorized.pbrt"
 
     os.chdir(folder)
 
-    # for spp in [1, 4, 16, 64, 128]:
-    for spp in [128, 256, 512, 1024]:
+    for spp in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]:
+        # for spp in [10, 20, 256, 512, 1024]:
         # spp = spp * spp
         output = os.path.basename(scene_file).replace(
             ".pbrt", "-path-{}.png".format(spp))
-        command = "{} ../{} --spp {} --output {}".format(
+        command = "{} ../{} --spp {} --integrator path --output {}".format(
             pbrt_exe, scene_file, spp, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
@@ -108,7 +110,7 @@ def quality_render(_folder: str):
     for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
             ".pbrt", "-path-{}.png".format(spp))
-        command = "{} ../{} --spp {} --output {}".format(
+        command = "{} ../{} --spp {} --integrator path --output {}".format(
             pbrt_exe, scene_file, spp, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
@@ -186,6 +188,6 @@ if __name__ == "__main__":
     elif args.surfacenormal:
         surfacenormal_render(folder)
     else:
-        regular_render(folder)
+        regular_render(folder, "mlt", False)
 
     print("\n\nout folder: {}".format(folder))
