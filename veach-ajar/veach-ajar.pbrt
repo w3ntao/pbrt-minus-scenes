@@ -7,8 +7,8 @@ Sampler "sobol"
     "integer pixelsamples" [ 64 ]
 
 PixelFilter "mitchell"
-    "float xradius" [ 1 ]
-    "float yradius" [ 1 ]
+    "float xradius" [ 2 ]
+    "float yradius" [ 2 ]
 
 Film "rgb"
     "string filename" [ "veach-ajar.png" ]
