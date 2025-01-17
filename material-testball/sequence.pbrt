@@ -1,0 +1,129 @@
+NamedMaterial "ShareMaterialCoatedDiffuse"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -5 0 -5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -5 0 -5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "Stand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -5 0 -5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "ShareMaterialConductor"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 0 0 0
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 0 0 0
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "Stand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 0 0 0
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "ShareMaterialCoatedDiffuse"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 5 0 5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 5 0 5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "Stand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 5 0 5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+

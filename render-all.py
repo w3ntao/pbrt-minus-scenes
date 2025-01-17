@@ -5,13 +5,18 @@ import datetime
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-pbrt_exe = "{}/pbrt-minus".format(dir_path)
+#pbrt_exe = "/home/wentao/Desktop/pbrt-v4/cmake-build-release/pbrt"
+pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
 
 all_scenes = [
-    "veach-mis/veach-mis-colorized.pbrt",
-
     "cornell-box/cornell-box-specular.pbrt",
     "cornell-box/cornell-box-environment-map.pbrt",
+
+    "caustic-glass/caustic-glass-v4.pbrt",
+
+    "veach-mis/veach-mis-colorized.pbrt",
+
+    "veach-ajar/veach-ajar.pbrt",
 
     "pbrt-book/book.pbrt",
 
@@ -31,19 +36,19 @@ all_scenes = [
     "killeroos/killeroo-simple.pbrt",
 
     "transparent-machines/frame542.pbrt",
-    "transparent-machines/frame675.pbrt",
-    "transparent-machines/frame812.pbrt",
-    "transparent-machines/frame888.pbrt",
-    "transparent-machines/frame1266.pbrt",
+    # "transparent-machines/frame675.pbrt",
+    # "transparent-machines/frame812.pbrt",
+    # "transparent-machines/frame888.pbrt",
+    # "transparent-machines/frame1266.pbrt",
 
     "zero-day/frame25.pbrt",
-    "zero-day/frame35.pbrt",
-    "zero-day/frame52.pbrt",
-    "zero-day/frame85.pbrt",
-    "zero-day/frame120.pbrt",
-    "zero-day/frame180.pbrt",
-    "zero-day/frame210.pbrt",
-    "zero-day/frame300.pbrt",
+    # "zero-day/frame35.pbrt",
+    # "zero-day/frame52.pbrt",
+    # "zero-day/frame85.pbrt",
+    # "zero-day/frame120.pbrt",
+    # "zero-day/frame180.pbrt",
+    # "zero-day/frame210.pbrt",
+    # "zero-day/frame300.pbrt",
 ]
 
 
@@ -53,47 +58,60 @@ def bash(command):
 
 def get_current_time():
     # print(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M"))
-    return datetime.datetime.now().strftime("%B-%d-%H-%M")
+    # print(datetime.datetime.now().strftime("%Y-%B-%d-%H-%M"))
+    # return datetime.datetime.now().strftime("%d-%H-%M")
+    return datetime.datetime.now().strftime("%m-%d-%H-%M")
 
 
-def regular_render(_folder: str, integrator: str, megakernel: bool):
-    spp = 4
+def regular_render(_folder: str, integrator: str):
+    spp = 1
 
-    os.chdir(folder)
+    os.chdir(_folder)
     for scene_file in all_scenes:
-        output = os.path.basename(scene_file).replace(
-            ".pbrt", "-{}-{}.png".format(integrator, spp))
-
-        megakernel_config = "--megakernel" if megakernel else ""
-
-        command = "{} ../{} --spp {} --integrator {} {} --output {}".format(
-            pbrt_exe, scene_file, spp, integrator, megakernel_config, output)
-
         print("{}: rendering {}".format(_folder, scene_file))
+
+        output = os.path.basename(scene_file).replace(
+            ".pbrt", "-{}.png".format(spp))
+
+        command = "{} ../{} --integrator path --spp {} --outfile {}".format(
+            pbrt_exe, scene_file, spp, output)
 
         if bash(command) != 0:
             raise Exception("\n\n fail rendering {}\n\n".format(scene_file))
 
         print("\n")
 
-
 def debug_run(_folder: str):
     # scene_file = "ganesha/ganesha.pbrt"
     # scene_file = "ganesha/ganesha-coated-gold.pbrt"
     # scene_file = "bmw-m6/bmw-m6.pbrt"
-    scene_file = "cornell-box/cornell-box-specular.pbrt"
+    # scene_file = "cornell-box/cornell-box-specular.pbrt"
+    # scene_file = "cornell-box/cornell-box-environment-map.pbrt"
     # scene_file = "crown/crown.pbrt"
     # scene_file = "killeroos/killeroo-simple.pbrt"
     # scene_file = "veach-mis/veach-mis-colorized.pbrt"
+    scene_file = "veach-ajar/veach-ajar.pbrt"
+    # scene_file = "caustic-glass/caustic-glass-v4.pbrt"
 
-    os.chdir(folder)
+    #scene_file = "caustic-glass/debug-dielectric.pbrt"
+    #scene_file = "caustic-glass/debug-dielectric-with-glass.pbrt"
 
-    for spp in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]:
-        # for spp in [10, 20, 256, 512, 1024]:
+
+    #scene_file = "killeroos/killeroo-dielectric.pbrt"
+    #scene_file = "killeroos/killeroo-gold.pbrt"
+    #scene_file = "killeroos/debug-dielectric.pbrt"
+
+    # scene_file = "lte-orb/lte-orb-silver.pbrt"
+
+    os.chdir(_folder)
+
+    for spp in [9, 16, 64, 256, 1024, 2048]:
+    #for spp in [16, 64, 128]:
         # spp = spp * spp
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-path-{}.png".format(spp))
-        command = "{} ../{} --spp {} --integrator path --output {}".format(
+            ".pbrt", "-{}.png".format(spp))
+
+        command = "{} ../{} --spp {} --outfile {}".format(
             pbrt_exe, scene_file, spp, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
@@ -106,11 +124,11 @@ def debug_run(_folder: str):
 def quality_render(_folder: str):
     spp = 256
 
-    os.chdir(folder)
+    os.chdir(_folder)
     for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
             ".pbrt", "-path-{}.png".format(spp))
-        command = "{} ../{} --spp {} --integrator path --output {}".format(
+        command = "{} ../{} --spp {} --integrator mltpath --outfile {} --preview".format(
             pbrt_exe, scene_file, spp, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
@@ -121,15 +139,15 @@ def quality_render(_folder: str):
 
 
 def surfacenormal_render(_folder: str):
-    spp = 100
+    # spp = 100
 
-    os.chdir(folder)
+    os.chdir(_folder)
     for scene_file in all_scenes:
         output = os.path.basename(scene_file).replace(
             ".pbrt", "-{}.pbrt".format(spp))
 
-        command = "{} ../{} --spp {} --integrator surfacenormal --output {}".format(
-            pbrt_exe, scene_file, spp, output)
+        command = "{} ../{} --integrator surfacenormal --outfile {}".format(
+            pbrt_exe, scene_file,  output)
 
         print("{}: rendering {}".format(_folder, scene_file))
 
@@ -140,7 +158,7 @@ def surfacenormal_render(_folder: str):
 
 
 def memory_test(_folder: str):
-    os.chdir(folder)
+    os.chdir(_folder)
 
     for scene_file in all_scenes:
         command = "compute-sanitizer --tool memcheck --leak-check full {} ../{} --spp 1".format(
@@ -174,9 +192,19 @@ if __name__ == "__main__":
                         default=False,
                         action='store_true')  # on/off flag
 
+    current_path = os.getcwd()
+
     args = parser.parse_args()
 
     folder = "out-{}".format(get_current_time())
+
+    if "pbrt-v4" in pbrt_exe:
+        folder += "-pbrt-v4"
+    elif "pbrt-minus" in pbrt_exe:
+        folder += "-pbrt-minus"
+    else:
+        raise Exception("error")
+
     bash("mkdir -p {}".format(folder))
 
     if args.debug:
@@ -188,6 +216,6 @@ if __name__ == "__main__":
     elif args.surfacenormal:
         surfacenormal_render(folder)
     else:
-        regular_render(folder, "mlt", False)
+        regular_render(folder, "wavefrontpath")
 
     print("\n\nout folder: {}".format(folder))

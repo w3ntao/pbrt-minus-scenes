@@ -1,0 +1,72 @@
+LookAt 10 8 10  0 0 0  0.01 1 0
+
+Integrator "path"
+    "integer maxdepth" [ 65 ]
+
+#Transform [ 0.721367 -0.373123 -0.583445 -0 -0 0.842456 -0.538765 -0 -0.692553 -0.388647 -0.60772 -0 0.0258668 -0.29189 5.43024 1  ]
+
+Sampler "sobol"
+    "integer pixelsamples" [ 64 ]
+PixelFilter "triangle"
+    "float xradius" [ 1 ]
+    "float yradius" [ 1 ]
+Film "rgb"
+    "string filename" [ "test-material-testball.png" ]
+    "integer yresolution" [ 720 ]
+    "integer xresolution" [ 1280 ]
+Camera "perspective"
+    "float fov" [ 20.114292 ]
+
+
+WorldBegin
+
+Texture "Texture01" "spectrum" "checkerboard"
+    "rgb tex2" [ 0.725 0.71 0.68 ]
+    "rgb tex1" [ 0.325 0.31 0.25 ]
+    "float vscale" [ 20 ]
+    "float uscale" [ 20 ]
+
+MakeNamedMaterial "ShareMaterialConductor"
+    "string type" [ "conductor" ]
+    "float roughness" [ 0.0025 ]
+    "spectrum k" [ "metal-Ag-k" ]
+    "spectrum eta" [ "metal-Ag-eta" ]
+
+MakeNamedMaterial "ShareMaterialCoatedDiffuse"
+    "string type" [ "coateddiffuse" ]
+    "float vroughness" [ 0.001 ]
+    "float uroughness" [ 0.001 ]
+    "bool remaproughness" [ false ]
+    "rgb reflectance" [ 0.243117 0.059106 0.000849 ]
+
+MakeNamedMaterial "Stand"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.2 0.2 0.2 ]
+
+MakeNamedMaterial "Floor"
+    "string type" [ "diffuse" ]
+    "texture reflectance" [ "Texture01" ]
+AttributeBegin
+    Transform [ -0.386527 0 0.922278 0 -0.922278 0 -0.386527 0 0 1 0 0 0 0 0 1  ]
+    LightSource "infinite"
+        "string filename" "textures/envmap.pfm"
+AttributeEnd
+
+NamedMaterial "Floor"
+Shape "trianglemesh"
+    #"point2 uv" [ 0 0 1 0 1 1 0 1 ]
+    "point2 uv" [ 0 0 50 0 50 50 0 50 ]
+    "normal N" [ 1.2361e-7 -1 2.4837e-9 1.2361e-7 -1 2.4837e-9 1.2361e-7 -1 2.4837e-9
+                 1.2361e-7 -1 2.4837e-9 ]
+    "point3 P" [
+        -78.5994 0 311.108
+        -455.196 0 -80.933
+        -63.155 0 -457.529
+        313.441 0 -65.4886
+        ]
+
+    "integer indices" [ 0 1 2 0 2 3 ]
+
+
+Include "sequence.pbrt"
+
