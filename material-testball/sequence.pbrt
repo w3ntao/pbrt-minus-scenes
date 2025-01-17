@@ -1,4 +1,4 @@
-NamedMaterial "ShareMaterialCoatedDiffuse"
+NamedMaterial "DiffuseTransmissionAlpha"
 AttributeBegin
     Transform [
         0.482906 0 0 0
@@ -7,7 +7,7 @@ AttributeBegin
         0.0571719 0.213656 0.0682078 1
         ]
 AttributeBegin
-    Translate -5 0 -5
+    Translate 1.5 0 -10.5
     Shape "plymesh"
         "string filename" [ "models/Mesh001.ply" ]
 AttributeEnd
@@ -20,13 +20,13 @@ AttributeBegin
         0 0 0.482906 0
         0.156382 0.777229 0.161698 1  ]
 AttributeBegin
-    Translate -5 0 -5
+    Translate 1.5 0 -10.5
     Shape "plymesh"
         "string filename" [ "models/Mesh002.ply" ]
 AttributeEnd
 AttributeEnd
 
-NamedMaterial "Stand"
+NamedMaterial "GreyStand"
 AttributeBegin
     Transform [
         0.482906 0 0 0
@@ -34,14 +34,272 @@ AttributeBegin
         0 0 0.482906 0
         0.110507 0.494301 0.126194 1  ]
 AttributeBegin
-    Translate -5 0 -5
+    Translate 1.5 0 -10.5
     Shape "plymesh"
         "string filename" [ "models/Mesh000.ply" ]
 AttributeEnd
 AttributeEnd
 
 
-NamedMaterial "ShareMaterialConductor"
+NamedMaterial "DiffuseTransmissionBeta"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 6 0 -6
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 6 0 -6
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 6 0 -6
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "DiffuseTransmissionDelta"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 10.5 0 -1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 10.5 0 -1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 10.5 0 -1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "CoatedDiffuseAlpha"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -1.5 0 -7.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -1.5 0 -7.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -1.5 0 -7.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "CoatedDiffuseBeta"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 3 0 -3
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 3 0 -3
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 3 0 -3
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "CoatedDiffuseDelta"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 7.5 0 1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 7.5 0 1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 7.5 0 1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "DielectricAlpha"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -4.5 0 -4.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -4.5 0 -4.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "RedStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -4.5 0 -4.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "DielectricBeta"
 AttributeBegin
     Transform [
         0.482906 0 0 0
@@ -69,7 +327,7 @@ AttributeBegin
 AttributeEnd
 AttributeEnd
 
-NamedMaterial "Stand"
+NamedMaterial "BlueStand"
 AttributeBegin
     Transform [
         0.482906 0 0 0
@@ -84,7 +342,7 @@ AttributeEnd
 AttributeEnd
 
 
-NamedMaterial "ShareMaterialCoatedDiffuse"
+NamedMaterial "DielectricDelta"
 AttributeBegin
     Transform [
         0.482906 0 0 0
@@ -93,7 +351,7 @@ AttributeBegin
         0.0571719 0.213656 0.0682078 1
         ]
 AttributeBegin
-    Translate 5 0 5
+    Translate 4.5 0 4.5
     Shape "plymesh"
         "string filename" [ "models/Mesh001.ply" ]
 AttributeEnd
@@ -106,13 +364,13 @@ AttributeBegin
         0 0 0.482906 0
         0.156382 0.777229 0.161698 1  ]
 AttributeBegin
-    Translate 5 0 5
+    Translate 4.5 0 4.5
     Shape "plymesh"
         "string filename" [ "models/Mesh002.ply" ]
 AttributeEnd
 AttributeEnd
 
-NamedMaterial "Stand"
+NamedMaterial "GreenStand"
 AttributeBegin
     Transform [
         0.482906 0 0 0
@@ -120,7 +378,265 @@ AttributeBegin
         0 0 0.482906 0
         0.110507 0.494301 0.126194 1  ]
 AttributeBegin
-    Translate 5 0 5
+    Translate 4.5 0 4.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "Copper"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -7.5 0 -1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -7.5 0 -1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -7.5 0 -1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "Silver"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -3 0 3
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -3 0 3
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -3 0 3
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "Gold"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate 1.5 0 7.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate 1.5 0 7.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate 1.5 0 7.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "CoatedCopper"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -10.5 0 1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -10.5 0 1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -10.5 0 1.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "CoatedSilver"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -6 0 6
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -6 0 6
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -6 0 6
+    Shape "plymesh"
+        "string filename" [ "models/Mesh000.ply" ]
+AttributeEnd
+AttributeEnd
+
+
+NamedMaterial "CoatedGold"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.0571719 0.213656 0.0682078 1
+        ]
+AttributeBegin
+    Translate -1.5 0 10.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh001.ply" ]
+AttributeEnd
+AttributeEnd
+
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.156382 0.777229 0.161698 1  ]
+AttributeBegin
+    Translate -1.5 0 10.5
+    Shape "plymesh"
+        "string filename" [ "models/Mesh002.ply" ]
+AttributeEnd
+AttributeEnd
+
+NamedMaterial "GreyStand"
+AttributeBegin
+    Transform [
+        0.482906 0 0 0
+        0 0.482906 0 0
+        0 0 0.482906 0
+        0.110507 0.494301 0.126194 1  ]
+AttributeBegin
+    Translate -1.5 0 10.5
     Shape "plymesh"
         "string filename" [ "models/Mesh000.ply" ]
 AttributeEnd
