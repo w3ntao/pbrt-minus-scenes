@@ -13,7 +13,7 @@ Film "rgb"
 Sampler "sobol"
     "integer pixelsamples" [ 32 ]
 
-Integrator "path"
+Integrator "bdpt"
 #Integrator "mlt"
 
 
@@ -26,8 +26,8 @@ LightSource "spot"
     "point3 from" [ 0 5 9 ]
 
 AttributeBegin
-    LightSource "infinite"
-        "rgb L" [ 0.1 0.1 0.1 ]
+    #LightSource "infinite"
+    #    "rgb L" [ 0.1 0.1 0.1 ]
 AttributeEnd
 
 AttributeBegin
