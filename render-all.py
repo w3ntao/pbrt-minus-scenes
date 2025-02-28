@@ -6,7 +6,8 @@ import datetime
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 #pbrt_exe = "/home/wentao/Desktop/pbrt-v4/cmake-build-release/pbrt"
-pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
+#pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
+pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/jerusalem-build/pbrt-minus"
 
 simple_scenes = [
     "cornell-box/cornell-box-specular.pbrt",
@@ -21,6 +22,16 @@ simple_scenes = [
 ]
 
 quality_scenes = [
+    "bathroom/bathroom.pbrt",
+    "bathroom2/bathroom2.pbrt",
+
+    "living-room/living-room.pbrt",
+
+    "staircase/staircase.pbrt",
+    "staircase2/staircase2.pbrt",
+
+    "material-testball/material-testball-sequence.pbrt",
+
     "caustic-glass/caustic-glass-v4.pbrt",
 
     "veach-mis/veach-mis-colorized.pbrt",
@@ -76,7 +87,7 @@ def get_current_time():
 
 
 def regular_render(_folder: str, integrator: str):
-    spp = 4
+    spp = 36
 
     os.chdir(_folder)
     for scene_file in quality_scenes:
@@ -133,13 +144,13 @@ def debug_run(_folder: str):
 
 
 def quality_render(_folder: str):
-    spp = 256
+    spp = 4096
 
     os.chdir(_folder)
     for scene_file in quality_scenes:
         output = os.path.basename(scene_file).replace(
-            ".pbrt", "-path-{}.png".format(spp))
-        command = "{} ../{} --spp {} --integrator mltpath --outfile {} --preview".format(
+            ".pbrt", "-{}.png".format(spp))
+        command = "{} ../{} --spp {} --outfile {} --preview".format(
             pbrt_exe, scene_file, spp, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
@@ -147,7 +158,6 @@ def quality_render(_folder: str):
         if bash(command) != 0:
             raise Exception("\n\n fail rendering {}\n\n".format(scene_file))
         print("\n")
-
 
 def surfacenormal_render(_folder: str):
     # spp = 100
