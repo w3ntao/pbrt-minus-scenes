@@ -41,23 +41,36 @@ MakeNamedMaterial "floor"
     "float vroughness" [ 0.010408 ]
     "float uroughness" [ 0.010408 ]
 
-ObjectBegin "sphere"
-    # sphere
-    AttributeBegin
-
-    NamedMaterial "floor"
-
-        Translate 186 90 168
-        Shape "sphere"
-            "float radius" [ 90 ]
-    AttributeEnd
-ObjectEnd
-
 AttributeBegin
-    ObjectInstance "sphere"
+Material "dielectric"
+    "bool remaproughness" [ false ]
+    #"float vroughness" [ 0.01 ]
+    #"float uroughness" [ 0.01 ]
+
+Material "coatedconductor"
+    "spectrum conductor.k" [ "spds/Au.k.spd" ]
+    "spectrum conductor.eta" [ "spds/Au.eta.spd" ]
+    "float interface.roughness" [ 0.02 ]
+    "float conductor.roughness" [ 0.002 ]
+
+Material "coatedconductor"
+    "spectrum conductor.k" [ "metal-Ag-k" ]
+    "spectrum conductor.eta" [ "metal-Ag-eta" ]
+    "float interface.roughness" [ 0.02 ]
+    "float conductor.roughness" [ 0.002 ]
+
+    Translate 186 90 168
+    Shape "sphere"
+        "float radius" [ 90 ]
 AttributeEnd
 
 AttributeBegin
-    Translate 180 0 180
-    ObjectInstance "sphere"
+    Material "conductor"
+    "float roughness" [ 0.0025 ]
+    "spectrum k" [ "metal-Cu-k" ]
+    "spectrum eta" [ "metal-Cu-eta" ]
+
+    Translate 366 90 348
+    Shape "sphere"
+        "float radius" [ 90 ]
 AttributeEnd
