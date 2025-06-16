@@ -1,10 +1,7 @@
-Integrator "mlt"
+Integrator "bdpt"
     "integer maxdepth" [ 20 ]
 
 Transform [ 0.137285 -0.0319925 -0.990015 -0 -0 0.999478 -0.0322983 -0 -0.990531 -0.00443405 -0.137212 -0 -2.84124 -1.49616 3.74927 1  ]
-
-Sampler "sobol"
-    "integer pixelsamples" [ 64 ]
 
 PixelFilter "mitchell"
     "float xradius" [ 2 ]
@@ -89,7 +86,7 @@ MakeNamedMaterial "Pot3"
 
 AttributeBegin
     AreaLightSource "diffuse"
-        "rgb L" [ 1000 1000 1000 ]
+        "rgb L" [ 300 300 300 ]
     NamedMaterial "Light"
     Shape "trianglemesh"
         "point2 uv" [ 0 0 1 0 1 1 0 1
