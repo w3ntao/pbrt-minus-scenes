@@ -19,7 +19,7 @@ Camera "perspective"
     "float fov" [ 28.0000262073138 ]
 
 Integrator "path"
-    "integer maxdepth" [ 1 ]
+    "integer maxdepth" [ 5 ]
 
 WorldBegin
 

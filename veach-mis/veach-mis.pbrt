@@ -18,8 +18,8 @@ Scale -1 1 1
 Camera "perspective"
     "float fov" [ 28.0000262073138 ]
 
-Integrator "simplepath"
-    "integer maxdepth" [ 1 ]
+Integrator "path"
+    "integer maxdepth" [ 5 ]
 
 WorldBegin
 
