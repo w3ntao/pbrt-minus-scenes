@@ -6,8 +6,8 @@ import datetime
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 #pbrt_exe = "/home/wentao/Desktop/pbrt-v4/cmake-build-release/pbrt"
-#pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
-pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/jerusalem-build/pbrt-minus"
+pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-release/pbrt-minus"
+#pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/jerusalem-build/pbrt-minus"
 
 simple_scenes = [
     "cornell-box/cornell-box-specular.pbrt",
@@ -31,6 +31,7 @@ quality_scenes = [
     "staircase2/staircase2.pbrt",
 
     "material-testball/material-testball-sequence.pbrt",
+    "material-testball/volumetric-sequance.pbrt",
 
     "caustic-glass/caustic-glass-v4.pbrt",
 
@@ -73,6 +74,14 @@ quality_scenes = [
     "zero-day/frame180.pbrt",
     "zero-day/frame210.pbrt",
     "zero-day/frame300.pbrt",
+]
+
+transparent_machines = [
+    "transparent-machines/frame542.pbrt",
+    "transparent-machines/frame675.pbrt",
+    "transparent-machines/frame812.pbrt",
+    "transparent-machines/frame888.pbrt",
+    "transparent-machines/frame1266.pbrt",
 ]
 
 def bash(command):
@@ -144,13 +153,14 @@ def debug_run(_folder: str):
 
 
 def quality_render(_folder: str):
-    spp = 4096
+    spp = 16
 
     os.chdir(_folder)
     for scene_file in quality_scenes:
+    #for scene_file in transparent_machines:
         output = os.path.basename(scene_file).replace(
             ".pbrt", "-{}.png".format(spp))
-        command = "{} ../{} --spp {} --outfile {} --preview".format(
+        command = "{} ../{} --spp {} --outfile {}".format(
             pbrt_exe, scene_file, spp, output)
 
         print("{}: rendering {}".format(_folder, scene_file))
