@@ -11,7 +11,9 @@ pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-relea
 
 simple_scenes = [
     "cornell-box/cornell-box-specular.pbrt",
+    "cornell-box/cornell-box-silver.pbrt",
     "cornell-box/cornell-box-environment-map.pbrt",
+    "cornell-box/smallpt.pbrt",
 
     "killeroos/killeroo-gold.pbrt",
     "killeroos/killeroo-coated-gold.pbrt",
@@ -22,6 +24,14 @@ simple_scenes = [
 ]
 
 quality_scenes = [
+    "material-testball/material-testball-sequence.pbrt",
+    "material-testball/volumetric-sequance.pbrt",
+
+    "veach-ajar/veach-ajar.pbrt",
+    "veach-mis/veach-mis-colorized.pbrt",
+
+    "caustic-glass/caustic-glass-v4.pbrt",
+
     "bathroom/bathroom.pbrt",
     "bathroom2/bathroom2.pbrt",
 
@@ -29,15 +39,6 @@ quality_scenes = [
 
     "staircase/staircase.pbrt",
     "staircase2/staircase2.pbrt",
-
-    "material-testball/material-testball-sequence.pbrt",
-    "material-testball/volumetric-sequance.pbrt",
-
-    "caustic-glass/caustic-glass-v4.pbrt",
-
-    "veach-mis/veach-mis-colorized.pbrt",
-
-    "veach-ajar/veach-ajar.pbrt",
 
     "pbrt-book/book.pbrt",
 
@@ -96,10 +97,10 @@ def get_current_time():
 
 
 def regular_render(_folder: str, integrator: str):
-    spp = 36
+    spp = 16
 
     os.chdir(_folder)
-    for scene_file in quality_scenes:
+    for scene_file in (simple_scenes + quality_scenes):
         print("{}: rendering {}".format(_folder, scene_file))
 
         output = os.path.basename(scene_file).replace(
