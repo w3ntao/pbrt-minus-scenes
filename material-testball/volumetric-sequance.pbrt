@@ -1,6 +1,6 @@
 LookAt 11 10 11  0 0 0  0.01 1 0
 
-Integrator "megakernelpath"
+Integrator "path"
 #Integrator "volpath"
     "integer maxdepth" [ 45 ]
 

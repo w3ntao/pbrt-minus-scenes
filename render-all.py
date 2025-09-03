@@ -10,7 +10,9 @@ pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/cmake-build-relea
 #pbrt_exe = "/home/wentao/Dropbox/developer/graphics/pbrt-minus/jerusalem-build/pbrt-minus"
 
 simple_scenes = [
+    "cornell-box/cornell-box-volume.pbrt",
     "cornell-box/cornell-box-specular.pbrt",
+    "cornell-box/cornell-box-specular-volume.pbrt",
     "cornell-box/cornell-box-silver.pbrt",
     "cornell-box/cornell-box-environment-map.pbrt",
     "cornell-box/smallpt.pbrt",
