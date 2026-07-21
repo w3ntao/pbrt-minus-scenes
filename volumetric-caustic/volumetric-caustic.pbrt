@@ -1,6 +1,12 @@
 Integrator "bdpt"
     "integer maxdepth" [ 7 ]
-Transform [ 1 -0 0 -0 -0 1 -0 -0 0 -0 -1 -0 0 -1 7 1  ]
+Transform [
+    1  0    0  0
+    0  1    0  0
+    0  0   -1  0
+    0 -1  6.8  1
+]
+
 Sampler "independent"
     "integer pixelsamples" [ 64 ]
 PixelFilter "triangle"
