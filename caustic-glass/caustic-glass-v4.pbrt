@@ -13,8 +13,7 @@ Film "rgb"
 Sampler "sobol"
     "integer pixelsamples" [ 32 ]
 
-Integrator "bdpt"
-#Integrator "mlt"
+Integrator "mlt"
 
 
 WorldBegin
