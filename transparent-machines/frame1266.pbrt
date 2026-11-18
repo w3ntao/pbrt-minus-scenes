@@ -2,18 +2,20 @@ Translate 22 10 0
 Rotate -70 0 0 1
 ConcatTransform [ 0.282326 0.9337543 -0.21998829 0 -0.6146391 8.326673e-17 -0.7888084 0 -0.7365533 0.35791454 0.573922 0 -14.366784 -46.78744 354.40802 1  ]
 # 4.5
-# imgtool convert -bloomlevel 1 frame1266.exr frame1266.png 
+# imgtool convert -bloomlevel 1 frame1266.exr frame1266.png
 Camera "perspective"
     "float fov" [ 8 ]
 Film "rgb"
     "integer xresolution" [ 1920 ]
     "integer yresolution" [ 840 ]
-    "float maxcomponentvalue" 10
+    "float maxcomponentvalue" 15
 Sampler "halton"
     "integer pixelsamples" [ 64 ]
-Integrator "volpath"
-    "integer maxdepth" [ 256 ]
 
+Integrator "path"
+    "integer maxdepth" [ 256 ]
+    "integer raysplit" [ 3 ]
+    "bool russianroulette" [ false ]
 
 WorldBegin
 

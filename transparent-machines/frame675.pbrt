@@ -3,21 +3,23 @@ Camera "perspective"
     "float lensradius" [ 0 ]
     "float focaldistance" [ 2000 ]
     "float fov" [ 4.509713 ]
-# imgtool convert -bloomlevel 1 frame675.exr frame675.png 
+# imgtool convert -bloomlevel 1 frame675.exr frame675.png
 Film "rgb"
-    "float maxcomponentvalue" 10
-    "string filename" [ "frame675.exr" ]
+    "float maxcomponentvalue" 15
+    "string filename" [ "frame675.png" ]
     "integer yresolution" [ 840 ]
     "integer xresolution" [ 1920 ]
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
-Integrator "volpath"
-    "integer maxdepth" [ 256 ]
 
+Integrator "path"
+    "integer maxdepth" [ 256 ]
+    "integer raysplit" [ 3 ]
+    "bool russianroulette" [ false ]
 
 WorldBegin
 
-# Default 
+# Default
 
 AttributeBegin
     Rotate 220 0 1 0

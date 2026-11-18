@@ -4,16 +4,19 @@ ConcatTransform [ 0.282326 0.9337543 -0.21998829 0 -0.6146391 8.326673e-17 -0.78
 #    "integer xresolution" [960] "integer yresolution" [420]
 Camera "perspective"
     "float fov" [ 15 ]
-# imgtool convert -bloomlevel 1 frame812.exr frame812.png 
+# imgtool convert -bloomlevel 1 frame812.exr frame812.png
 Film "rgb"
     "string filename" [ "frame812.exr" ]
-    "float maxcomponentvalue" 10
+    "float maxcomponentvalue" 15
     "integer yresolution" [ 840 ]
     "integer xresolution" [ 1920 ]
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
-Integrator "volpath"
+
+Integrator "path"
     "integer maxdepth" [ 256 ]
+    "integer raysplit" [ 3 ]
+    "bool russianroulette" [ false ]
 
 
 WorldBegin

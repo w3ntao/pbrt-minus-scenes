@@ -63,13 +63,16 @@ quality_scenes = [
 
 poster_scenes = [
     "zero-day/frame300.pbrt",
-    "transparent-machines/frame675.pbrt",
     "pbrt-book/book.pbrt",
     "bathroom/bathroom.pbrt",
     "staircase/staircase.pbrt",
     "material-testball/material-testball-sequence.pbrt",
-    "volumetric-caustic/volumetric-caustic.pbrt",
     "caustic-glass/caustic-glass-v4.pbrt",
+    "volumetric-caustic/volumetric-caustic.pbrt",
+    "living-room/living-room.pbrt",
+    "chopper-titan/chopper-titan-v4.pbrt",
+    "bmw-m6/bmw-m6.pbrt",
+    "transparent-machines/frame675.pbrt",
 ]
 
 zero_day = [
@@ -84,8 +87,8 @@ zero_day = [
 ]
 
 transparent_machines = [
-    "transparent-machines/frame542.pbrt",
     "transparent-machines/frame675.pbrt",
+    "transparent-machines/frame542.pbrt",
     "transparent-machines/frame812.pbrt",
     "transparent-machines/frame888.pbrt",
     "transparent-machines/frame1266.pbrt",
@@ -103,11 +106,11 @@ def get_current_time():
     return datetime.datetime.now().strftime("%m-%d-%H-%M")
 
 
-def regular_render(_folder: str, integrator: str):
-    spp = 16
+def regular_render(_folder: str):
+    spp = 1024
 
     os.chdir(_folder)
-    for scene_file in simple_scenes + quality_scenes:
+    for scene_file in transparent_machines:
         print("{}: rendering {}".format(_folder, scene_file))
 
         output = os.path.basename(scene_file).replace(".pbrt", "-{}.png".format(spp))
@@ -143,14 +146,12 @@ def debug_run(_folder: str):
 
     # scene_file = "lte-orb/lte-orb-silver.pbrt"
 
-    scene_file = "material-testball/material-testball-sequence.pbrt"
+    # scene_file = "material-testball/material-testball-sequence.pbrt"
+
     scene_file = "transparent-machines/frame675.pbrt"
     os.chdir(_folder)
 
-    # for spp in [9, 16, 64, 256, 1024]:
-    for spp_dimension in range(10, 50, 4):
-        spp = spp_dimension * spp_dimension
-
+    for spp in [16**2, 32**2, 64**2]:
         output = os.path.basename(scene_file).replace(".pbrt", "-{}.png".format(spp))
 
         command = "{} ../{} --spp {} --outfile {}".format(
@@ -182,11 +183,12 @@ def quality_render(_folder: str):
 
 
 def poster_render(_folder: str):
-    spp = 256
+    spp = 1024
 
     os.chdir(_folder)
     for scene_file in poster_scenes:
         # for scene_file in transparent_machines:
+
         output = os.path.basename(scene_file).replace(".pbrt", "-{}.png".format(spp))
         command = "{} ../{} --spp {} --outfile {}".format(
             pbrt_exe, scene_file, spp, output
@@ -219,6 +221,8 @@ if __name__ == "__main__":
         prog=os.path.basename(__file__), description="a helper script for pbrt-minus"
     )
 
+    parser.add_argument("--regular", default=False, action="store_true")  # on/off flag
+
     parser.add_argument("--debug", default=False, action="store_true")  # on/off flag
 
     parser.add_argument("--memory", default=False, action="store_true")  # on/off flag
@@ -238,7 +242,10 @@ if __name__ == "__main__":
 
     bash("mkdir -p {}".format(folder))
 
-    if args.debug:
+    if args.regular:
+        regular_render(folder)
+
+    elif args.debug:
         debug_run(folder)
 
     elif args.memory:
@@ -254,6 +261,6 @@ if __name__ == "__main__":
         surfacenormal_render(folder)
 
     else:
-        regular_render(folder, "wavefrontpath")
+        raise Exception("unknown mode: {}".format(mode))
 
     print("\n\nout folder: {}".format(folder))

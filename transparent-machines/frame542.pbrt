@@ -5,15 +5,17 @@ Camera "perspective"
     "float fov" [ 12 ]
 # imgtool convert -bloomlevel 1 frame542.exr frame542.png
 Film "rgb"
-    "float maxcomponentvalue" 10
+    "float maxcomponentvalue" 15
     "string filename" [ "frame542.exr" ]
     "integer yresolution" [ 840 ]
     "integer xresolution" [ 1920 ]
 Sampler "halton"
     "integer pixelsamples" [ 1024 ]
 
-Integrator "volpath"
+Integrator "path"
     "integer maxdepth" [ 256 ]
+    "integer raysplit" [ 3 ]
+    "bool russianroulette" [ false ]
 
 
 WorldBegin
